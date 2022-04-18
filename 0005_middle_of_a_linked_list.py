@@ -1,25 +1,17 @@
-from collections import defaultdict
-from typing import List
+# Definition for singly-linked list.
+from typing import Optional
 
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 class Solution:
-    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
-        # gives us the ability to add keys to the dict without initializing it
-        dict = defaultdict(int)
-
-        for i in range(len(mat)):
-            dict[i] = mat[i].count(1)
-        new_dict = defaultdict(int)
-        done = False
-        while not done:
-            for key, value in list(dict.items()):
-                if value == min(dict.values()):
-                    new_dict[key] = dict.pop(key)
-                    break
-                    # after removing a pair from the dict,
-                    # we re-run the for loop until we get the kth smallest value,
-                    # then we can end the while loop
-            if len(new_dict) == k:
-                done = True
-        return list(new_dict.keys())
-
-# print(Solution().kWeakestRows([[1,1,0,0,0],[1,1,1,1,0],[1,0,0,0,0],[1,1,0,0,0],[1,1,1,1,1]], 3))
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # While slow moves one step forward, fast moves two steps forward
+        # So by the end of the while loop, when fast reaches the end, slow is in the middle
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
