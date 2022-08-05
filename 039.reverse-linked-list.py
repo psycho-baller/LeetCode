@@ -26,7 +26,7 @@ class Solution:
         # node = head
         # if not node:
         #     return None
-        # stack =[]
+        # stack = []
         # while node:
         #     stack.append(node)
         #     node = node.next
