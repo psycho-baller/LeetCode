@@ -16,22 +16,27 @@ class Solution:
             # checks if the rows are valid
             for r in range(len(board[i])):
                 b = board[i]
-                print(b[r], b[r+1:])
                 if b[r].isdigit() and b[r] in b[r+1:]:
                     return False
             # checks if the columns are valid
             col = [column[i] for column in board]
             for c in range(len(col)):
-                print(col[c], col[c+1:])
                 if col[c].isdigit() and col[c] in col[c+1:]:
                     return False
-            # check if the boxes are valid in the row dir
-            
-            # check if the boxes are valid in the col dir
-            
-            # check if the boxes are valid in the diag dir
-            
-        
+
+
+        # check if all the boxes are valid
+        for row in range(0, len(board), 3):
+            for col in range(0, len(board[0]), 3):
+                hSet = set()
+                for r in range(row, row+3):
+                    for c in range(col, col+3):
+                        val = board[r][c]
+                        if val.isdigit():
+                            if val in hSet:
+                                return False
+                            else:
+                                hSet.add(val)
 
         return True
     
