@@ -17,5 +17,6 @@ class Solution:
         for _ in range(k):
             nums.insert(0, nums.pop())
         # nums[:] = nums[-k:] + nums[:-k]
+
 # @lc code=end
 
