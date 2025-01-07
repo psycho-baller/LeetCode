@@ -4,6 +4,7 @@
 #
 # [1] Two Sum
 #
+# Notion: https://www.notion.so/rami-m/leetcode-course-e4229bacae0240e194a02cc0685959b3?p=174f55603e85805c8975e738a9c7845b&pm=s
 
 # @lc code=start
 from typing import List
