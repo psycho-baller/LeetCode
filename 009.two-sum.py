@@ -11,11 +11,13 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # Brute Force
         # for i in range(len(nums)):
         #     for j in range(i + 1, len(nums)):
         #         if nums[i] + nums[j] == target:
         #             return [i, j]
 
+        # Sorting & Binary Search
         # A = []
         # for i, num in enumerate(nums):
         #     A.append((num, i))
@@ -31,6 +33,7 @@ class Solution:
         #         j -= 1
         # return []
 
+        # One-pass Hash Table
         value_to_index = {}
         for i, num in enumerate(nums):
             if target - num in index_to_value:
