@@ -4,6 +4,7 @@
 # [121] Best Time to Buy and Sell Stock
 #
 
+
 # @lc code=start
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -24,12 +25,5 @@ class Solution:
 
         return max_diff
 
-# Failed attempt:
-        # mini = min(prices)
-        # index_of_min = prices.index(mini)
-        # if mini == prices[-1]:
-        #     return 0
-        # maxi = max(prices[index_of_min+1:])
-        # profit = maxi - mini
-        # return profit
+
 # @lc code=end
