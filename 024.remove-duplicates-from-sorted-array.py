@@ -34,5 +34,14 @@ class Solution:
         # non_duplicates = nums_len - duplicates
         # return non_duplicates
 
+        # two pointers
+        # l = r = 0
+        # while r < len(nums):
+        #     nums[l] = nums[r]
+        #     while nums[r] == nums[l] and r < len(nums):
+        #         r += 1
+        #     l += 1
+        # return l
+
 
 # @lc code=end
