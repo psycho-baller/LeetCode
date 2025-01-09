@@ -8,15 +8,15 @@
 # @lc code=start
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        prefix = ""
-        for i, letter in enumerate(strs[0]):
-            prefix += letter
+        if not strs:
+            return ""
+        for i in range(len(strs[0])):
             for word in strs:
                 if i >= len(word):
-                    return prefix[:-1]
-                if word[i] != prefix[-1]:
-                    return prefix[:-1]
-        return prefix
+                    return strs[0][:i]
+                if word[i] != strs[0][i]:
+                    return strs[0][:i]
+        return strs[0]
 
 
 # @lc code=end
