@@ -16,7 +16,6 @@ class Solution:
         while idx < len(nums):
             if nums[idx - 1] == nums[idx]:
                 nums.pop(idx)
-                # duplicates += 1
             else:
                 idx += 1
         return len(nums)
