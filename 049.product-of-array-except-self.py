@@ -10,18 +10,31 @@ from math import prod
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        res = []
-        # adding prefix
-        pre = 1
+        ans = []
+        prefix_mul = 1
         for i in range(len(nums)):
-            res.append(pre)
-            pre *= nums[i]
+            ans.append(prefix_mul)
+            prefix_mul *= nums[i]
 
-        # adding postfix
-        post = 1
-        for i in range(len(nums)-1,-1,-1):
-            res[i] *= post
-            post*=nums[i]
-        return res
+        postfix_mul = 1
+        for i in range(len(nums) - 1, -1, -1):
+            ans[i] *= postfix_mul
+            postfix_mul *= nums[i]
+        return ans
+
+        # res = []
+        # # adding prefix
+        # pre = 1
+        # for i in range(len(nums)):
+        #     res.append(pre)
+        #     pre *= nums[i]
+
+        # # adding postfix
+        # post = 1
+        # for i in range(len(nums)-1,-1,-1):
+        #     res[i] *= post
+        #     post*=nums[i]
+        # return res
+
+
 # @lc code=end
-
