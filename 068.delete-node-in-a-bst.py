@@ -16,34 +16,29 @@ class TreeNode:
 
 class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
-        def searchThenDelete(root: TreeNode, key: int) -> bool:
-            # if root.val == key:
-            #     pass
-            if key == root.left.val:
-                if root.left.left:
-                    root.left = root.left.left
-                elif root.left.right:
-                    root.left = root.left.right
-                else:
-                    root.left = None
-                return True
-
-            elif key == root.right.val:
-                root.right = (
-                    root.right.left
-                    if root.right.left
-                    else (root.right.right if root.right.right else None)
-                )
-                return True
-            if key > root.val:
-                searchThenDelete(root.right, key)
-            else:
-                searchThenDelete(root.left, key)
-
         if not root:
             return root
-        searchThenDelete(root, key)
+        if root.val > key:
+            root.left = self.deleteNode(root.left, key)
+        elif root.val < key:
+            root.right = self.deleteNode(root.right, key)
+        else:
+            # when there are no child on either side
+            if not root.left:
+                return root.right
+            elif not root.right:
+                return root.left
+
+            # When there are children in both sides
+            next_big_val = self.findMin(root.right)
+            root.val = next_big_val.val
+            root.right = self.deleteNode(root.right, root.val)
         return root
+
+    def findMin(self, node: TreeNode) -> TreeNode:
+        while node.left:
+            node = node.left
+        return node
 
 
 # @lc code=end
